@@ -66,12 +66,12 @@ public class Receiver extends javax.swing.JFrame {
             }
         });
         
+        
         ServerSocket server = new ServerSocket(8080);
         Socket socket = server.accept();
         
         try (DataInputStream rcv = new DataInputStream(new BufferedInputStream(socket.getInputStream())))
         {
-        
             while (true)
             {
                 int frameWidth = rcv.readInt();
@@ -86,10 +86,17 @@ public class Receiver extends javax.swing.JFrame {
 
                 BufferedImage frame = new BufferedImage(frameWidth, frameHeight, BufferedImage.TYPE_INT_RGB);
                 frame.setRGB(0, 0, frameWidth, frameHeight, pixelData, 0, frameWidth);
-
+                
                 receiverImageHolder.setIcon(new ImageIcon(frame));   
             }
-        }            
+        }
+        catch(Exception e)
+        {
+            System.out.println("Chat ended on sending side.");
+            server.close();
+            socket.close();
+            System.exit(0);
+        }
                 
     }
     

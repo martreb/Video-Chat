@@ -1,6 +1,7 @@
 package javaapplication2;
 
 import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamException;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
@@ -14,7 +15,7 @@ import javax.swing.ImageIcon;
  // @author Bert
 public class GUI extends javax.swing.JFrame 
 {   
-    public static Webcam webcam;
+    //public static Webcam webcam;
     
     /**
      * Creates new form GUI
@@ -118,18 +119,26 @@ public class GUI extends javax.swing.JFrame
         try
         {
             //DataOutputStream sender is made into a BufferedOutputStream using a new socket on localhost on port 8080
-            sender = new DataOutputStream(new BufferedOutputStream(new Socket("192.168.1.147", 8080).getOutputStream()));   //change back to localhost
+            sender = new DataOutputStream(new BufferedOutputStream(new Socket("127.0.0.1", 8080).getOutputStream()));   //change back to localhost
         }
         catch(IOException e)
         {
             
         }
         
-        webcam = Webcam.getDefault();
-        webcam.setViewSize(new Dimension(320,240));
-        webcam.open();
+        try
+        {
+            webcam = Webcam.getDefault();
+            webcam.setViewSize(new Dimension(320,240));
+            webcam.open();
+        }
+        catch(WebcamException e)
+        {
+            System.out.println("No webcam to use");
+            System.exit(0);
+        }
             
-        while (true)
+        while (true)   //this boolean needs to change
         {
             BufferedImage frame = webcam.getImage(); //get frame from webcam
 
