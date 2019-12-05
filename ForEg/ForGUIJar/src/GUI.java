@@ -1,5 +1,3 @@
-package javaapplication2;
-
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamException;
 import java.awt.Dimension;
@@ -11,6 +9,7 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.*;
 
  // @author Bert
 public class GUI extends javax.swing.JFrame 
@@ -114,10 +113,10 @@ public class GUI extends javax.swing.JFrame
     {        
         Webcam webcam = null;
         
+        String ipAddress = JOptionPane.showInputDialog("Enter the ip of the other computer"); 
+        
         DataOutputStream sender = null;
                 
-	String ipAddress = JOptionPane.showInputDialog("Enter your ip address");	
-
         try
         {
             //DataOutputStream sender is made into a BufferedOutputStream using a new socket on localhost on port 8080
