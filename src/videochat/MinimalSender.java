@@ -1,4 +1,4 @@
-package javaapplication2;
+package videochat;
 
 import com.github.sarxos.webcam.Webcam;
 import java.awt.Dimension;
