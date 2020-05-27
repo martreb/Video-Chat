@@ -2,5 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Desktop/Files/Github/Video-Chat/lib/bridj-0.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Desktop/Files/Github/Video-Chat/lib/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Desktop/Files/Github/Video-Chat/lib/webcam-capture-0.3.12.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
