@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
@@ -19,7 +20,7 @@ import com.github.sarxos.webcam.WebcamException;
 
 public class Sender extends javax.swing.JFrame 
 {   
-    public Sender() 
+    public Sender()  
     {
         initComponents(); // will set up the jframe and what not
     }
@@ -31,9 +32,7 @@ public class Sender extends javax.swing.JFrame
         imageHolder = new javax.swing.JLabel(); // get a label for images
         JButton captureButton = new javax.swing.JButton(); // make a button
         JPanel buttonPanel = new JPanel(); // make a panel to stick the button to
-
         captureButton.setText("Capture"); // names the button
-        captureButton.setName("imageHolder"); // NOI18N
         captureButton.addActionListener(new java.awt.event.ActionListener() // makes the button able to do stuff
         {
             public void actionPerformed(java.awt.event.ActionEvent evt) 
@@ -47,7 +46,7 @@ public class Sender extends javax.swing.JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // what happens when the frame is closed
         frame.getContentPane().add(imageHolder, BorderLayout.CENTER); // create the components, and put them in the frame
         frame.pack(); // size it
-        frame.setSize(640, 480);
+        frame.setSize(640, 520);
         frame.setLocationRelativeTo(null); // center it
         frame.setVisible(true); // show it
         frame.getContentPane().add(buttonPanel, BorderLayout.SOUTH); // sticks the panel and button to the bottom of the frame
